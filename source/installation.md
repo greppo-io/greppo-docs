@@ -1,12 +1,14 @@
 # Installation
 
-Greppo is a single library and using your favorite python env manager (see below), simply use pip to install.
+Greppo is a stand-alone library and can be installed using `pip` to install. Python 3.6 and newer is suported.
 
-```{code-block} shell
+We recommend using a virtual environment to manage the dependencies for your project (<a href="#pyvenv">see below</a>).  
+
+```shell
 pip install greppo
 ```
 
-## Python Environment Management
+## [Python Environment Management](#pyvenv)
 
 Pip will install packages at a global level and it's good practice is to use an Environment manger to isolate individual
 Python projects and their respective dependencies. The main reasons to do so are to avoid package conflicts as a project

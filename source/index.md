@@ -19,6 +19,7 @@ Check out the [Installation](installation) and [Quickstart](quickstart) sections
 
 installation
 quickstart
+demo
 ```
 
 ```{toctree}
@@ -27,6 +28,7 @@ quickstart
 
 map-components/index
 input-components/index
+chart-components/index
 ```
 
 ```{toctree}

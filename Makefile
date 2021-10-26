@@ -29,14 +29,14 @@ livehtml:
 	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 
-.PHONY: build-docs
-build-docs:	
+.PHONY: build
+build:	
 	make html
 
-.PHONY: live-build-docs
-live-build-docs:	
-	make livehtml
+.PHONY: live-build
+live-build:		
+	sphinx-autobuild "$(SOURCEDIR)" build/live-html $(SPHINXOPTS) $(O)
 
-.PHONY: serve-docs
-serve-docs:	
+.PHONY: serve
+serve:	
 	cd build/html && open ./index.html

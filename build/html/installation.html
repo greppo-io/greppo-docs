@@ -162,6 +162,7 @@
   <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Interfacing Components</span></p>
 <ul>
@@ -175,8 +176,11 @@
 <li class="toctree-l2"><a class="reference internal" href="input-components/number.html">Number</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-components/select.html">Select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-components/multiselect.html">Multiselect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input-components/line_chart.html">Line Chart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input-components/bar_chart.html">Bar Chart</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="chart-components/index.html">Chart components</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="chart-components/bar-chart.html">Bar Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chart-components/line-chart.html">Line Chart</a></li>
 </ul>
 </li>
 </ul>
@@ -214,12 +218,13 @@
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Greppo is a single library and using your favorite python env manager (see below), simply use pip to install.</p>
+<p>Greppo is a stand-alone library and can be installed using <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install. Python 3.6 and newer is suported.</p>
+<p>We recommend using a virtual environment to manage the dependencies for your project (<a href="#pyvenv">see below</a>).</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install greppo
 </pre></div>
 </div>
 <section id="python-environment-management">
-<h2>Python Environment Management<a class="headerlink" href="#python-environment-management" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference external" href="#pyvenv">Python Environment Management</a><a class="headerlink" href="#python-environment-management" title="Permalink to this headline">¶</a></h2>
 <p>Pip will install packages at a global level and it’s good practice is to use an Environment manger to isolate individual
 Python projects and their respective dependencies. The main reasons to do so are to avoid package conflicts as a project
 grows in size and complexity, and to have a reproducible build system.</p>
@@ -275,7 +280,7 @@ deactivate <span class="c1"># close local environment</span>
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Oct 25, 2021.
+            Last updated on Oct 26, 2021.
         </div>
         
       </footer>

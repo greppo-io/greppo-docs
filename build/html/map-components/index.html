@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Base layer" href="base-layer.html" /><link rel="prev" title="Quickstart" href="../quickstart.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Base layer" href="base-layer.html" /><link rel="prev" title="Demo" href="../demo.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.png"/><meta name="generator" content="sphinx-4.2.0, furo 2021.10.09"/>
         <title>Map components - Greppo</title>
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -162,6 +162,7 @@
   <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo.html">Demo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Interfacing Components</span></p>
 <ul class="current">
@@ -175,8 +176,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../input-components/number.html">Number</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/select.html">Select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/multiselect.html">Multiselect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../input-components/line_chart.html">Line Chart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../input-components/bar_chart.html">Bar Chart</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chart-components/index.html">Chart components</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chart-components/bar-chart.html">Bar Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chart-components/line-chart.html">Line Chart</a></li>
 </ul>
 </li>
 </ul>
@@ -206,7 +210,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -214,8 +218,26 @@
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="map-components">
 <h1>Map components<a class="headerlink" href="#map-components" title="Permalink to this headline">¶</a></h1>
+<p>The components that provide an API interface to the (geo)spatial visualizations are described here. Greppo uses <a class="reference external" href="https://leafletjs.com/">Leaflet</a> to render and interact with (geo)spatial data. The main components are:</p>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="base-layer.html">Base layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay-layer.html">Overlay layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="draw-feature.html">Draw Feature</a></li>
+</ul>
 </div>
+<section id="base-layer">
+<h2>Base layer<a class="headerlink" href="#base-layer" title="Permalink to this headline">¶</a></h2>
+<p>This provides the base layer to be used. It is usually a link to a tile server. Although only one base layer could be visible at a particular time, you can add many base-layers as options that can be toggled in the app.</p>
+</section>
+<section id="overlay-layer">
+<h2>Overlay layer<a class="headerlink" href="#overlay-layer" title="Permalink to this headline">¶</a></h2>
+<p>You can add as many overlay layers as you want. At this moment, only vector overlay layers can be added. Raster layers are forseen in the coming releases.</p>
+</section>
+<section id="draw-feature">
+<h2>Draw feature<a class="headerlink" href="#draw-feature" title="Permalink to this headline">¶</a></h2>
+<p>Through the provided draw feature, you can draw Point, Line or Polygon on the map and can get the data of the drawn features using the <code class="docutils literal notranslate"><span class="pre">gpo.draw_feature()</span></code> API in your script as a GeoDataFrame. At this point you can have only one draw feature, but multiple draw features are foreseen.</p>
+</section>
 </section>
 
         </article>
@@ -232,14 +254,14 @@
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../quickstart.html">
+          <a class="prev-page" href="../demo.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Quickstart</div>
+                <div class="title">Demo</div>
                 
               </div>
             </a>
@@ -247,13 +269,34 @@
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Oct 25, 2021.
+            Last updated on Oct 26, 2021.
         </div>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Map components</a><ul>
+<li><a class="reference internal" href="#base-layer">Base layer</a></li>
+<li><a class="reference internal" href="#overlay-layer">Overlay layer</a></li>
+<li><a class="reference internal" href="#draw-feature">Draw feature</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
