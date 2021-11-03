@@ -2,7 +2,7 @@
 
 ## Welcome to Greppo's documentation
 
-**Greppo** is a Python library that makes it easy for Data Scientists to quickly build geo-spatial apps natively in Python. You do not need any fonr-end or back-end experience to start using this. Out-of-the-box, the library provides front-end components and APIs to connect to the back-end.
+**Greppo** is a Python library that makes it easy for Data Scientists to quickly build geospatial apps natively in Python. You do not need any fonr-end or back-end experience to start using this. Out-of-the-box, the library provides front-end components and APIs to connect to the back-end.
 
 **Greppo** focuses on:
 

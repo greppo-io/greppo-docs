@@ -1,6 +1,6 @@
 # Mental model
 
-Greppo's interface is simple and is designed with the intention of getting out of the users way. We want to make it easy to build a geo-spatial app quickly.
+Greppo's interface is simple and is designed with the intention of getting out of the users way. We want to make it easy to build a geospatial app quickly.
 
 Greppo focuses on two ideas,
 
@@ -8,7 +8,7 @@ Greppo focuses on two ideas,
 * Use simple macros to prepare a user code for execution within Greppo.
 
 The first idea ensures as much freedom as possible in terms of compatability with libraries commonly used for data
-science and geo-spatial analysis. The second is to keep Greppo in the background and only surface a small interface
+science and geospatial analysis. The second is to keep Greppo in the background and only surface a small interface
 for the user to work with. Both ideas keep the mental bandwidth of using a new library low and focus on simple and
 intuitive UX.
 

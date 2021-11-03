@@ -1,6 +1,6 @@
 # Map components
 
-The components that provide an API interface to the (geo)spatial visualizations are described here. Greppo uses [Leaflet](https://leafletjs.com/) to render and interact with (geo)spatial data. The main components are:
+The components that provide an API interface to the geospatial visualizations are described here. Greppo uses [Leaflet](https://leafletjs.com/) to render and interact with geospatial data. The main components are:
 
 ```{toctree}
 :maxdepth: 1
