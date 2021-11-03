@@ -48,7 +48,7 @@ number value with a list size of 10,
 
 ## Run app
 
-Run the app and you're on your way building a geo-spatial app in seconds!
+Run the app and you're on your way building a geospatial app in seconds!
 ```shell
 greppo serve app.py
 ```
