@@ -19,7 +19,7 @@ Here are a few managers commonly used,
 - [pyenv](https://github.com/pyenv/pyenv)
 - [conda](https://docs.conda.io/en/latest/)
 
-As a reference here's one such manager `virtualenv`, assuming you are working with `pip3`.
+As a reference here's how to install greppo with the `virtualenv` manager. Assuming you are working with `pip3`,
 
 ```shell
 pip3 install virtualenv # install virtualenv
@@ -34,3 +34,5 @@ pip install greppo # install greppo inside that environment
 
 deactivate # close local environment
 ```
+
+
