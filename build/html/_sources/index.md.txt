@@ -19,6 +19,7 @@ Check out the [Installation](installation) and [Quickstart](quickstart) sections
 
 installation
 quickstart
+deployment
 demo
 ```
 
