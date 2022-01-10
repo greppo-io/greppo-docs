@@ -2,6 +2,8 @@
 
 The `display` API gives you the ability to display markdown text and simple text in the frontend. As well as setting the `title` and `description` of your app.
 
+The **About me** of the app can be set by setting the `title` and `description` of the app.
+
 ## Parameters
 
 `name` - String value serving as a unique identifier for the display component.
