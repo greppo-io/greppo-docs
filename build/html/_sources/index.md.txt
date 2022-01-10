@@ -30,6 +30,7 @@ demo
 map-components/index
 input-components/index
 chart-components/index
+display
 ```
 
 ```{toctree}
