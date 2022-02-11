@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Base layer" href="base-layer.html" /><link rel="prev" title="Demo" href="../demo.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Base Layer" href="base-layer.html" /><link rel="prev" title="Demo" href="../demo.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.png"/><meta name="generator" content="sphinx-4.2.0, furo 2021.10.09"/>
         <title>Map components - Greppo</title>
@@ -168,13 +168,18 @@
 <p class="caption" role="heading"><span class="caption-text">Interfacing Components</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Map components</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="base-layer.html">Base layer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overlay-layer.html">Overlay layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="base-layer.html">Base Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overlay-layer.html">Overlay Layer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="draw-feature.html">Draw Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-layer.html">Vector Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tile-layer.html">Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wms-tile-layer.html">WMS Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee-layer.html">Google Earth Engine Layer</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../input-components/index.html">Input components</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/number.html">Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input-components/text.html">Text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/select.html">Select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/multiselect.html">Multiselect</a></li>
 </ul>
@@ -223,9 +228,13 @@
 <p>The components that provide an API interface to the geospatial visualizations are described here. Greppo uses <a class="reference external" href="https://leafletjs.com/">Leaflet</a> to render and interact with geospatial data. The main components are:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="base-layer.html">Base layer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overlay-layer.html">Overlay layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base-layer.html">Base Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay-layer.html">Overlay Layer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="draw-feature.html">Draw Feature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector-layer.html">Vector Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tile-layer.html">Tile Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wms-tile-layer.html">WMS Tile Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ee-layer.html">Google Earth Engine Layer</a></li>
 </ul>
 </div>
 <section id="base-layer">
@@ -238,7 +247,7 @@
 </section>
 <section id="draw-feature">
 <h2>Draw feature<a class="headerlink" href="#draw-feature" title="Permalink to this headline">¶</a></h2>
-<p>Through the provided draw feature, you can draw Point, Line or Polygon on the map and can get the data of the drawn features using the <code class="docutils literal notranslate"><span class="pre">gpo.draw_feature()</span></code> API in your script as a GeoDataFrame. At this point you can have only one draw feature, but multiple draw features are foreseen.</p>
+<p>Through the provided draw feature, you can draw Point, Line or Polygon on the map and can get the data of the drawn features using the <code class="docutils literal notranslate"><span class="pre">app.draw_feature()</span></code> API in your script as a GeoDataFrame. At this point you can have only one draw feature, but multiple draw features are foreseen.</p>
 </section>
 </section>
 
@@ -252,7 +261,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Base layer</div>
+                <div class="title">Base Layer</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -271,7 +280,7 @@
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Jan 10, 2022.
+            Last updated on Feb 11, 2022.
         </div>
         
       </footer>

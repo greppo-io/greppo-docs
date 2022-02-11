@@ -1,10 +1,10 @@
-# Overlay layer
+# Overlay Layer
 The Overlay Layer is used to render details on top of the Base Layer of the Map component on the UI.
 
 ## Parameters
-`data` GeoPandas DataFrame representing the Overlay details. TODO What are the columns etc.
+`data` GeoPandas DataFrame representing the Overlay details. The column data in the geodataframe that is passed is rendered as a pop-over data. 
 
-`title` Title string value rendered on the UI.
+`name` Name string value rendered on the UI, to reference it to the layer. 
 
 `description` Description string value rendered on the UI.
 
@@ -29,7 +29,7 @@ data_gdf_1["Value"] = pd.Series(
 
 app.overlay_layer(
     data_gdf_1,
-    title="Communes",
+    name="Communes",
     description="Communes in Normandy, France",
     style={"fillColor": "#F87979"},
     visible=True,

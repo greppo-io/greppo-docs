@@ -20,14 +20,14 @@ With this in mind, the following code snippets breaks down a common user-script 
 import geopandas as gpd
 import numpy as np
 import pandas as pd
-from greppo_app import gpo
+from greppo import app
 ```
 
 * For each Greppo app, we have a base layer that is a required setup from the user.
 
 ```python
 
-gpo.base_layer(
+app.base_layer(
     name="CartoDB Light",
     visible=True,
     url="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}@2x.png",
@@ -37,11 +37,11 @@ gpo.base_layer(
 
 ```
 
-* {code}`gpo.number` is Greppo primitive for user interaction for a number. Each defines the inputs they want in app, in this case a number, that they will use to manipulate the GIS data. Here, for :code:`gpo.number` there is a :code:`value` arg that defines the initial default value and a :code:`name` arg that is a _unique_ identifier for that input. Greppo uses the :code:`name` to provide a reactive feedback when rendering the app.
+* {code}`app.number` is Greppo primitive for user interaction for a number. Each defines the inputs they want in app, in this case a number, that they will use to manipulate the GIS data. Here, for :code:`app.number` there is a :code:`value` arg that defines the initial default value and a :code:`name` arg that is a _unique_ identifier for that input. Greppo uses the :code:`name` to provide a reactive feedback when rendering the app.
 
 ```python
 
-number_1 = gpo.number(value=10, name="Number input 1")
+number_1 = app.number(value=10, name="Number input 1")
 
 ```
 
@@ -53,7 +53,7 @@ data_gdf_1 = gpd.read_file("tests/data/communes.geojson")
 
 ```
 
-* Here the Greppo user closes the feedback loop and uses the :code:`gpo.number` input to perform analysis. This example is trivial but gives you a clear idea of how things work. When Greppo renders this code, the User can interact with the front-end to dynamically pass values and recompute the data.
+* Here the Greppo user closes the feedback loop and uses the :code:`app.number` input to perform analysis. This example is trivial but gives you a clear idea of how things work. When Greppo renders this code, the User can interact with the front-end to dynamically pass values and recompute the data.
 
 ```python
 
@@ -63,13 +63,13 @@ data_gdf_1["Value"] = pd.Series(
 
 ```
 
-* As with the :code:`gpo.base_layer`, a Greppo app must define a required :code:`gpo.overlay_layer`.
+* As with the :code:`app.base_layer`, a Greppo app must define a required :code:`app.overlay_layer`.
 
 ```python
 
-gpo.overlay_layer(
+app.overlay_layer(
     data_gdf_1,
-    title="Communes",
+    name="Communes",
     description="Communes in Normandy, France",
     style={"fillColor": "#F87979"},
     visible=True,
@@ -87,14 +87,13 @@ for i in range(10, 0, -1):
 
 ```
 
-* To complete this trivial example, this :code:`gpo.line_chart` gives you an idea of the visualization tools a Greppo
+* To complete this trivial example, this :code:`app.line_chart` gives you an idea of the visualization tools a Greppo
    app has access to. Here, the random number list generated above is plotted as a line chart.
 
 ```python
 
-gpo.line_chart(
+app.line_chart(
     name="some-name",
-    title="some_title",
     description="some_chart",
     x=[i for i in range(10)],
     y=y,

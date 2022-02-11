@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Overlay layer" href="overlay-layer.html" /><link rel="prev" title="Map components" href="index.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Overlay Layer" href="overlay-layer.html" /><link rel="prev" title="Map components" href="index.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.png"/><meta name="generator" content="sphinx-4.2.0, furo 2021.10.09"/>
-        <title>Base layer - Greppo</title>
+        <title>Base Layer - Greppo</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=0254c309f5cadf746f1a613e7677379ac9c8cdcd" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -168,13 +168,18 @@
 <p class="caption" role="heading"><span class="caption-text">Interfacing Components</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Map components</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Base layer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overlay-layer.html">Overlay layer</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Base Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overlay-layer.html">Overlay Layer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="draw-feature.html">Draw Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector-layer.html">Vector Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tile-layer.html">Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wms-tile-layer.html">WMS Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee-layer.html">Google Earth Engine Layer</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../input-components/index.html">Input components</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/number.html">Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input-components/text.html">Text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/select.html">Select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/multiselect.html">Multiselect</a></li>
 </ul>
@@ -219,14 +224,18 @@
         </div>
         <article role="main">
           <section class="tex2jax_ignore mathjax_ignore" id="base-layer">
-<h1>Base layer<a class="headerlink" href="#base-layer" title="Permalink to this headline">¶</a></h1>
+<h1>Base Layer<a class="headerlink" href="#base-layer" title="Permalink to this headline">¶</a></h1>
 <p>The Base Layer is used to render the Map component on the UI.</p>
 <section id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">name</span></code> Str value serving as a unique identifier for this UI component.</p>
+<p><code class="docutils literal notranslate"><span class="pre">provider</span></code> Supports the usage of <a class="reference external" href="https://xyzservices.readthedocs.io/en/stable/introduction.html"><code class="docutils literal notranslate"><span class="pre">xyzservices</span></code></a>. The provider takes in a string that contains the referece to the tile-provider. Example: <code class="docutils literal notranslate"><span class="pre">provider</span> <span class="pre">=</span> <span class="pre">"CartoDB</span> <span class="pre">Positron"</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">name</span></code> Str value serving as a unique identifier for this UI component. (Required when <code class="docutils literal notranslate"><span class="pre">provider</span></code> is not pased. otherwise, this value overrides the value from the <code class="docutils literal notranslate"><span class="pre">provider</span></code>.)</p>
 <p><code class="docutils literal notranslate"><span class="pre">visible</span></code> Boolean toggle to turn on or off a Base Layer. A Greppo App can have multiple Base Layers.</p>
-<p><code class="docutils literal notranslate"><span class="pre">url</span></code> URL representing the resource.</p>
+<p><code class="docutils literal notranslate"><span class="pre">url</span></code> URL representing the resource. (Required when <code class="docutils literal notranslate"><span class="pre">provider</span></code> is not pased. otherwise, this value overrides the value from the <code class="docutils literal notranslate"><span class="pre">provider</span></code>.)</p>
 <p><code class="docutils literal notranslate"><span class="pre">attributions</span></code> Usage attributions for the data.</p>
+<p><code class="docutils literal notranslate"><span class="pre">subdomains</span></code> To point to the right subdomain of the URL passed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">min_zoom</span></code> Min zoom level of the tile layers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">max_zoom</span></code> Max zoom level of the tile layers.</p>
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
@@ -239,6 +248,19 @@
     <span class="n">subdomains</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">attribution</span><span class="o">=</span><span class="s1">'&amp;copy; &lt;a target="_blank" href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'</span><span class="p">,</span>
 <span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">base_layer</span><span class="p">(</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="s2">"CartoDB Positron"</span>
+<span class="p">)</span>
+<span class="c1"># Possible alternative names:</span>
+
+<span class="n">provider</span> <span class="o">=</span> <span class="s2">"CartoDB Positron"</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="s2">"cartodbpositron"</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="s2">"cartodb-positron"</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="s2">"carto db/positron"</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="s2">"CARTO_DB_POSITRON"</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="s2">"CartoDB.Positron"</span>
+
 </pre></div>
 </div>
 </section>
@@ -254,7 +276,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Overlay layer</div>
+                <div class="title">Overlay Layer</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -273,7 +295,7 @@
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Jan 10, 2022.
+            Last updated on Feb 11, 2022.
         </div>
         
       </footer>
@@ -290,7 +312,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Base layer</a><ul>
+<li><a class="reference internal" href="#">Base Layer</a><ul>
 <li><a class="reference internal" href="#parameters">Parameters</a></li>
 <li><a class="reference internal" href="#usage">Usage</a></li>
 </ul>

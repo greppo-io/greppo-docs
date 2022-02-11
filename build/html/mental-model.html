@@ -168,13 +168,18 @@
 <p class="caption" role="heading"><span class="caption-text">Interfacing Components</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="map-components/index.html">Map components</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="map-components/base-layer.html">Base layer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="map-components/overlay-layer.html">Overlay layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map-components/base-layer.html">Base Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map-components/overlay-layer.html">Overlay Layer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="map-components/draw-feature.html">Draw Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map-components/vector-layer.html">Vector Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map-components/tile-layer.html">Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map-components/wms-tile-layer.html">WMS Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map-components/ee-layer.html">Google Earth Engine Layer</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="input-components/index.html">Input components</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="input-components/number.html">Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input-components/text.html">Text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-components/select.html">Select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="input-components/multiselect.html">Multiselect</a></li>
 </ul>
@@ -237,14 +242,14 @@ intuitive UX.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">greppo_app</span> <span class="kn">import</span> <span class="n">gpo</span>
+<span class="kn">from</span> <span class="nn">greppo</span> <span class="kn">import</span> <span class="n">app</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>For each Greppo app, we have a base layer that is a required setup from the user.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">gpo</span><span class="o">.</span><span class="n">base_layer</span><span class="p">(</span>
+<span class="n">app</span><span class="o">.</span><span class="n">base_layer</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">"CartoDB Light"</span><span class="p">,</span>
     <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">"https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/</span><span class="si">{z}</span><span class="s2">/</span><span class="si">{x}</span><span class="s2">/</span><span class="si">{y}</span><span class="s2">@2x.png"</span><span class="p">,</span>
@@ -255,10 +260,10 @@ intuitive UX.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">gpo.number</span></code> is Greppo primitive for user interaction for a number. Each defines the inputs they want in app, in this case a number, that they will use to manipulate the GIS data. Here, for :code:<code class="docutils literal notranslate"><span class="pre">gpo.number</span></code> there is a :code:<code class="docutils literal notranslate"><span class="pre">value</span></code> arg that defines the initial default value and a :code:<code class="docutils literal notranslate"><span class="pre">name</span></code> arg that is a <em>unique</em> identifier for that input. Greppo uses the :code:<code class="docutils literal notranslate"><span class="pre">name</span></code> to provide a reactive feedback when rendering the app.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">app.number</span></code> is Greppo primitive for user interaction for a number. Each defines the inputs they want in app, in this case a number, that they will use to manipulate the GIS data. Here, for :code:<code class="docutils literal notranslate"><span class="pre">app.number</span></code> there is a :code:<code class="docutils literal notranslate"><span class="pre">value</span></code> arg that defines the initial default value and a :code:<code class="docutils literal notranslate"><span class="pre">name</span></code> arg that is a <em>unique</em> identifier for that input. Greppo uses the :code:<code class="docutils literal notranslate"><span class="pre">name</span></code> to provide a reactive feedback when rendering the app.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">number_1</span> <span class="o">=</span> <span class="n">gpo</span><span class="o">.</span><span class="n">number</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Number input 1"</span><span class="p">)</span>
+<span class="n">number_1</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">number</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Number input 1"</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -271,7 +276,7 @@ intuitive UX.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Here the Greppo user closes the feedback loop and uses the :code:<code class="docutils literal notranslate"><span class="pre">gpo.number</span></code> input to perform analysis. This example is trivial but gives you a clear idea of how things work. When Greppo renders this code, the User can interact with the front-end to dynamically pass values and recompute the data.</p></li>
+<li><p>Here the Greppo user closes the feedback loop and uses the :code:<code class="docutils literal notranslate"><span class="pre">app.number</span></code> input to perform analysis. This example is trivial but gives you a clear idea of how things work. When Greppo renders this code, the User can interact with the front-end to dynamically pass values and recompute the data.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">data_gdf_1</span><span class="p">[</span><span class="s2">"Value"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
@@ -281,12 +286,12 @@ intuitive UX.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>As with the :code:<code class="docutils literal notranslate"><span class="pre">gpo.base_layer</span></code>, a Greppo app must define a required :code:<code class="docutils literal notranslate"><span class="pre">gpo.overlay_layer</span></code>.</p></li>
+<li><p>As with the :code:<code class="docutils literal notranslate"><span class="pre">app.base_layer</span></code>, a Greppo app must define a required :code:<code class="docutils literal notranslate"><span class="pre">app.overlay_layer</span></code>.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">gpo</span><span class="o">.</span><span class="n">overlay_layer</span><span class="p">(</span>
+<span class="n">app</span><span class="o">.</span><span class="n">overlay_layer</span><span class="p">(</span>
     <span class="n">data_gdf_1</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"Communes"</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"Communes"</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">"Communes in Normandy, France"</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s2">"fillColor"</span><span class="p">:</span> <span class="s2">"#F87979"</span><span class="p">},</span>
     <span class="n">visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -305,13 +310,12 @@ intuitive UX.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>To complete this trivial example, this :code:<code class="docutils literal notranslate"><span class="pre">gpo.line_chart</span></code> gives you an idea of the visualization tools a Greppo
+<li><p>To complete this trivial example, this :code:<code class="docutils literal notranslate"><span class="pre">app.line_chart</span></code> gives you an idea of the visualization tools a Greppo
 app has access to. Here, the random number list generated above is plotted as a line chart.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">gpo</span><span class="o">.</span><span class="n">line_chart</span><span class="p">(</span>
+<span class="n">app</span><span class="o">.</span><span class="n">line_chart</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">"some-name"</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"some_title"</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">"some_chart"</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)],</span>
     <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
@@ -350,7 +354,7 @@ app has access to. Here, the random number list generated above is plotted as a 
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Jan 10, 2022.
+            Last updated on Feb 11, 2022.
         </div>
         
       </footer>

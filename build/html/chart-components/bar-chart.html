@@ -168,13 +168,18 @@
 <p class="caption" role="heading"><span class="caption-text">Interfacing Components</span></p>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../map-components/index.html">Map components</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../map-components/base-layer.html">Base layer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../map-components/overlay-layer.html">Overlay layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/base-layer.html">Base Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/overlay-layer.html">Overlay Layer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map-components/draw-feature.html">Draw Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/vector-layer.html">Vector Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/tile-layer.html">Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/wms-tile-layer.html">WMS Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/ee-layer.html">Google Earth Engine Layer</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../input-components/index.html">Input components</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/number.html">Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../input-components/text.html">Text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/select.html">Select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../input-components/multiselect.html">Multiselect</a></li>
 </ul>
@@ -223,8 +228,7 @@
 <p>2-D Bar Chart is a UI component for rendering data.</p>
 <section id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">name</span></code> Str value serving as a unique identifier for this UI component.</p>
-<p><code class="docutils literal notranslate"><span class="pre">title</span></code> - Title string rendered on the UI.</p>
+<p><code class="docutils literal notranslate"><span class="pre">name</span></code> Str value serving as a unique identifier for this UI component. Serves as a title string rendered on the UI.</p>
 <p><code class="docutils literal notranslate"><span class="pre">description</span></code> - Description string rendered on the UI.</p>
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> - x-axis values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">y</span></code> - y-axis values.</p>
@@ -235,7 +239,6 @@
 
 <span class="n">app</span><span class="o">.</span><span class="n">bar_chart</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">"A bar chart"</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">"Test title"</span><span class="p">,</span>
     <span class="n">description</span><span class="o">=</span><span class="s2">"A simple bar chart"</span><span class="p">,</span>
     <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">],</span>
     <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,],</span>
@@ -274,7 +277,7 @@
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Jan 10, 2022.
+            Last updated on Feb 11, 2022.
         </div>
         
       </footer>

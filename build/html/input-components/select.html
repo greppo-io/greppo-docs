@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Multiselect" href="multiselect.html" /><link rel="prev" title="Number" href="number.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Multiselect" href="multiselect.html" /><link rel="prev" title="Text" href="text.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.png"/><meta name="generator" content="sphinx-4.2.0, furo 2021.10.09"/>
         <title>Select - Greppo</title>
@@ -168,13 +168,18 @@
 <p class="caption" role="heading"><span class="caption-text">Interfacing Components</span></p>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../map-components/index.html">Map components</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../map-components/base-layer.html">Base layer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../map-components/overlay-layer.html">Overlay layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/base-layer.html">Base Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/overlay-layer.html">Overlay Layer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../map-components/draw-feature.html">Draw Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/vector-layer.html">Vector Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/tile-layer.html">Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/wms-tile-layer.html">WMS Tile Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map-components/ee-layer.html">Google Earth Engine Layer</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Input components</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="number.html">Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">Text</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Select</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multiselect.html">Multiselect</a></li>
 </ul>
@@ -223,7 +228,7 @@
 <p>Select UI component that allows a user to pick one value from a list of values as a dropdown menu.</p>
 <section id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">name</span></code> - String value serving as a unique identifier for this UI component.</p>
+<p><code class="docutils literal notranslate"><span class="pre">name</span></code> - String value serving as a unique identifier for this UI component. Which is also displayed in the UI for this input.</p>
 <p><code class="docutils literal notranslate"><span class="pre">options</span></code> - List of possible values to select from. Value type is <code class="docutils literal notranslate"><span class="pre">[int,</span> <span class="pre">float,</span> <span class="pre">str,</span> <span class="pre">bool]</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">default</span></code> - The default selection when the Greppo App is run for the first time.</p>
 </section>
@@ -251,14 +256,14 @@
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="number.html">
+          <a class="prev-page" href="text.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Number</div>
+                <div class="title">Text</div>
                 
               </div>
             </a>
@@ -266,7 +271,7 @@
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Jan 10, 2022.
+            Last updated on Feb 11, 2022.
         </div>
         
       </footer>
