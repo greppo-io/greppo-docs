@@ -6,6 +6,7 @@ The components that provide an API interface to input components (form type elem
 :maxdepth: 1
 
 number
+text
 select
 multiselect
 ```

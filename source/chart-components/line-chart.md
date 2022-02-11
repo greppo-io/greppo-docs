@@ -2,9 +2,7 @@
 2-D Line Chart is a UI component for rendering data.
 
 ## Parameters
-`name` Str value serving as a unique identifier for this UI component.
-
-`title` - Title string rendered on the UI.
+`name` Str value serving as a unique identifier for this UI component. Serves as a title string rendered on the UI.
 
 `description` - Description string rendered on the UI. 
 
@@ -18,7 +16,6 @@ from greppo import app
 
 app.line_chart(
     name="A bar chart",
-    title="Test title",
     description="A simple bar chart",
     x = ['1', '2', '3', '5'],
     y = [1, 2, 3, 4],

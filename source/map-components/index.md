@@ -8,6 +8,10 @@ The components that provide an API interface to the geospatial visualizations ar
 base-layer
 overlay-layer
 draw-feature
+vector-layer
+tile-layer
+wms-tile-layer
+ee-layer
 ```
 
 ## Base layer
@@ -20,4 +24,4 @@ You can add as many overlay layers as you want. At this moment, only vector over
 
 ## Draw feature
 
-Through the provided draw feature, you can draw Point, Line or Polygon on the map and can get the data of the drawn features using the `gpo.draw_feature()` API in your script as a GeoDataFrame. At this point you can have only one draw feature, but multiple draw features are foreseen. 
+Through the provided draw feature, you can draw Point, Line or Polygon on the map and can get the data of the drawn features using the `app.draw_feature()` API in your script as a GeoDataFrame. At this point you can have only one draw feature, but multiple draw features are foreseen. 
