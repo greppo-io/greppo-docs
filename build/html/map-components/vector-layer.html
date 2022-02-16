@@ -303,19 +303,60 @@
 </tbody>
 </table></div>
 </section>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<section id="usage-general">
+<h2>Usage (General)<a class="headerlink" href="#usage-general" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="kn">from</span> <span class="nn">greppo</span> <span class="kn">import</span> <span class="n">app</span>
 
-<span class="n">data_gdf_1</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">"tests/data/communes.geojson"</span><span class="p">)</span>
+<span class="n">data_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">"./data/communes.geojson"</span><span class="p">)</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">vector_layer</span><span class="p">(</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data_gdf_1</span><span class="p">,</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data_gdf</span><span class="p">,</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">"Communes"</span><span class="p">,</span>
     <span class="n">description</span> <span class="o">=</span> <span class="s2">"Communes in Normandy, France"</span><span class="p">,</span>
     <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"fillColor"</span><span class="p">:</span> <span class="s2">"#F87979"</span><span class="p">},</span>
-    <span class="n">visible</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="choropleth">
+<h2>Choropleth<a class="headerlink" href="#choropleth" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">vector_layer</span></code> also supports the display of the polygons (geometry) as a <a class="reference external" href="https://en.wikipedia.org/wiki/Choropleth_map">choropleth map</a>. To use this feature, the choropleth styling must be specified in the <code class="docutils literal notranslate"><span class="pre">style</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">vector_layer</span></code>. The styling of <code class="docutils literal notranslate"><span class="pre">choropleth</span></code> is passed as a dictionary and must have the following 3 keys:</p>
+<p><code class="docutils literal notranslate"><span class="pre">key_on</span></code> The column name of the data that you want to map the choropleth. The column must be present in the GeoDataFrame that is passed in the <code class="docutils literal notranslate"><span class="pre">vector_layer</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">bins</span></code> This represents the binning of the data that is to be presented as a choropleth map. This could be an <code class="docutils literal notranslate"><span class="pre">int</span></code> value representing the number of bins, or a list of the values to bin the data in. The list then should be increasing and the binning occurs with checking the value greater than the value in the array. Meaning:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> 
+<span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+
+<span class="n">then</span> <span class="n">the</span> <span class="n">values</span> <span class="n">are</span> <span class="n">binned</span> <span class="k">as</span><span class="p">:</span>
+
+<span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span> <span class="n">then</span> <span class="nb">bin</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span> <span class="n">then</span> <span class="nb">bin</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span> <span class="n">then</span> <span class="nb">bin</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span> <span class="n">then</span> <span class="nb">bin</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="n">then</span> <span class="nb">bin</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">then</span> <span class="nb">bin</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">palette</span></code> This represents the color scheme for the choropleth map. This could be a list of the colors as Hex codes or RGB functions as <code class="docutils literal notranslate"><span class="pre">rgb(r,g,b)</span></code>. You could also mention a colorbrewer palette as a <code class="docutils literal notranslate"><span class="pre">str</span></code>. The supported colorbrewer palette names are as follows: <code class="docutils literal notranslate"><span class="pre">'YlGn',</span> <span class="pre">'YlGnBu',</span> <span class="pre">'GnBu',</span> <span class="pre">'BuGn',</span> <span class="pre">'PuBuGn',</span> <span class="pre">'PuBu',</span> <span class="pre">'BuPu',</span> <span class="pre">'RdPu',</span> <span class="pre">'PuRd',</span> <span class="pre">'OrRd',</span> <span class="pre">'YlOrRd',</span> <span class="pre">'YlOrBr',</span> <span class="pre">'Purples',</span> <span class="pre">'Blues',</span> <span class="pre">'Greens',</span> <span class="pre">'Oranges',</span> <span class="pre">'Reds',</span> <span class="pre">'Greys',</span> <span class="pre">'PuOr',</span> <span class="pre">'BrBG',</span> <span class="pre">'PRGn',</span> <span class="pre">'PiYG',</span> <span class="pre">'RdBu',</span> <span class="pre">'RdGy',</span> <span class="pre">'RdYlBu',</span> <span class="pre">'Spectral',</span> <span class="pre">'RdYlGn',</span> <span class="pre">'Accent',</span> <span class="pre">'Dark2',</span> <span class="pre">'Paired',</span> <span class="pre">'Pastel1',</span> <span class="pre">'Pastel2',</span> <span class="pre">'Set1',</span> <span class="pre">'Set2',</span> <span class="pre">'Set3'</span></code></p>
+</section>
+<section id="usage-choropleth">
+<h2>Usage (Choropleth)<a class="headerlink" href="#usage-choropleth" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">greppo</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="n">data_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">"./data/us-states.geojson"</span><span class="p">)</span>
+
+<span class="n">choropleth_style</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'key_on'</span><span class="p">:</span> <span class="s1">'density'</span><span class="p">,</span> 
+    <span class="s1">'bins'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
+    <span class="s1">'palette'</span><span class="p">:</span> <span class="s1">'Blues'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">vector_layer</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data_gdf</span><span class="p">,</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"US-States"</span><span class="p">,</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s2">"States in the US with their density info."</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s2">"choropleth"</span><span class="p">:</span> <span class="n">choropleth_style</span><span class="p">},</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -351,7 +392,7 @@
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Feb 11, 2022.
+            Last updated on Feb 16, 2022.
         </div>
         
       </footer>
@@ -371,7 +412,9 @@
 <li><a class="reference internal" href="#">Vector Layer</a><ul>
 <li><a class="reference internal" href="#parameters">Parameters</a></li>
 <li><a class="reference internal" href="#styling-option-adopted-from-leaflet">Styling option adopted from leaflet</a></li>
-<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#usage-general">Usage (General)</a></li>
+<li><a class="reference internal" href="#choropleth">Choropleth</a></li>
+<li><a class="reference internal" href="#usage-choropleth">Usage (Choropleth)</a></li>
 </ul>
 </li>
 </ul>
