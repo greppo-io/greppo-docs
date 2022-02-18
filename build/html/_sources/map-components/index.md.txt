@@ -5,6 +5,7 @@ The components that provide an API interface to the geospatial visualizations ar
 ```{toctree}
 :maxdepth: 1
 
+map-settings
 base-layer
 overlay-layer
 draw-feature
