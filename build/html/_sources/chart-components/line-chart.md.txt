@@ -14,6 +14,10 @@
 
 `color` - Choose the background color for the chart data as Hex color code as `#123123` or a RGC color code as `"rgb(200, 50, 150)"`.
 
+`xlabel` - The label string for the X axis.
+
+`ylabel` - The label string for the Y axis.
+
 ## Usage
 
 ```python
