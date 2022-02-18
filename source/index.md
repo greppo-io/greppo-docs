@@ -38,7 +38,7 @@ display
 :hidden:
 
 mental-model
-roadmap
+under-the-hood
 license
 GitHub Repository <https://github.com/greppo-io/greppo>
 ```
