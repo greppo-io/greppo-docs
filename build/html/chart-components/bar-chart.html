@@ -195,7 +195,7 @@
 <p class="caption" role="heading"><span class="caption-text">Inside Greppo</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../mental-model.html">Mental model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../under-the-hood.html">Under the hood</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/greppo-io/greppo">GitHub Repository</a></li>
 </ul>
@@ -232,8 +232,9 @@
 <p><code class="docutils literal notranslate"><span class="pre">name</span></code> Str value serving as a unique identifier for this UI component. Serves as a title string rendered on the UI.</p>
 <p><code class="docutils literal notranslate"><span class="pre">description</span></code> - Description string rendered on the UI.</p>
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> - x-axis values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">y</span></code> - y-axis values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">color</span></code> - Choose the background color for the chart data as Hex color code as <code class="docutils literal notranslate"><span class="pre">#123123</span></code> or a RGC color code as <code class="docutils literal notranslate"><span class="pre">"rgb(200,</span> <span class="pre">50,</span> <span class="pre">150)"</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">y</span></code> - y-axis values. In case of a multi-line chart, pass in a 2-dimensional list (list of list). In this case, the length of <code class="docutils literal notranslate"><span class="pre">color</span></code> and <code class="docutils literal notranslate"><span class="pre">label</span></code> should match the number of bar dataset.</p>
+<p><code class="docutils literal notranslate"><span class="pre">label</span></code> - label of the data. Default is the name of the chart. In the case of a multi-bar chart, should match the length of the number of bar dataset.</p>
+<p><code class="docutils literal notranslate"><span class="pre">color</span></code> - Choose the background color for the chart data as Hex color code as <code class="docutils literal notranslate"><span class="pre">#123123</span></code> or a RGC color code as <code class="docutils literal notranslate"><span class="pre">"rgb(200,</span> <span class="pre">50,</span> <span class="pre">150)"</span></code>. In the case of a multi-line chart, should match the length of the number of bar dataset.</p>
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
@@ -245,6 +246,16 @@
     <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">],</span>
     <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,],</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">"rgb(200, 50, 150)"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Multi-bar chart</span>
+<span class="n">app</span><span class="o">.</span><span class="n">bar_chart</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"A multi bar chart"</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">"A simple multi bar chart"</span><span class="p">,</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]],</span>
+    <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s1">'bar 1'</span><span class="p">,</span> <span class="s1">'bar 2'</span><span class="p">],</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"rgb(200, 50, 150)"</span><span class="p">,</span> <span class="s2">"rgb(100, 50, 150)"</span><span class="p">],</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -280,7 +291,7 @@
 
         <div class="related-information">
               Copyright &#169; 2021, Adithya Krishnan, Sarma Tangirala |
-            Last updated on Feb 18, 2022.
+            Last updated on Mar 23, 2022.
         </div>
         
       </footer>
