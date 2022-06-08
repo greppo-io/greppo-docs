@@ -8,11 +8,13 @@ The components that provide an API interface to the geospatial visualizations ar
 map-settings
 base-layer
 overlay-layer
-draw-feature
 vector-layer
+image-layer
+raster-layer
 tile-layer
 wms-tile-layer
 ee-layer
+draw-feature
 ```
 
 ## Base layer
